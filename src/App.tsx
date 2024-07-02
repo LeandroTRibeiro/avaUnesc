@@ -1,12 +1,17 @@
+import { Header } from "./components/layout/Header";
+import { Main } from "./components/layout/Main";
+import { useViewPortHeight } from "./hooks/useViewPortHeight";
 import { ThemeProvider } from "./providers/ThemeProvider";
 
 const App = () => {
+
+  const viewPortHeight = useViewPortHeight();
+
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div>
-        Hello World!
-
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis eius in voluptatem maiores pariatur eveniet, odio nulla totam et, culpa repellat! Minima dolor quos vitae eaque ut tempora repudiandae recusandae?
+      <div style={{ height: viewPortHeight }} className="max-w-[1440px] flex flex-col px-4 m-auto">
+        <Header />
+        <Main />
       </div>
     </ThemeProvider>
   )
